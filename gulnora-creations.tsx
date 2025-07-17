@@ -1,3 +1,7 @@
+"use client"
+
+import type React from "react"
+
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
@@ -11,7 +15,7 @@ export default function Component() {
     {
       id: 1,
       name: "Traditional Weave Tote",
-      price: "PKR 4,500",
+      price: "PKR 4,000",
       category: "Tote Bags",
       image: "/images/products/traditional-weave-tote.jpeg",
       rating: 5,
@@ -20,7 +24,7 @@ export default function Component() {
     {
       id: 2,
       name: "Abstract Swirl Tote",
-      price: "PKR 3,800",
+      price: "PKR 2,500",
       category: "Tote Bags",
       image: "/images/products/abstract-swirl-tote.jpeg",
       rating: 5,
@@ -29,7 +33,7 @@ export default function Component() {
     {
       id: 3,
       name: "3D Floral Roses Tote",
-      price: "PKR 4,200",
+      price: "PKR 4,000",
       category: "Tote Bags",
       image: "/images/products/floral-roses-tote.jpeg",
       rating: 5,
@@ -38,7 +42,7 @@ export default function Component() {
     {
       id: 4,
       name: "Strawberry Delight Tote",
-      price: "PKR 3,500",
+      price: "PKR 2,500",
       category: "Tote Bags",
       image: "/images/products/strawberry-tote.jpeg",
       rating: 5,
@@ -56,7 +60,7 @@ export default function Component() {
     {
       id: 6,
       name: "Butterfly Dreams Tote",
-      price: "PKR 4,800",
+      price: "PKR 4,000",
       category: "Tote Bags",
       image: "/images/products/butterfly-tote.jpeg",
       rating: 5,
@@ -69,6 +73,17 @@ export default function Component() {
     { name: "Floral Collection", count: 3, image: "/images/products/sunflower-tote.jpeg" },
     { name: "Traditional Crafts", count: 2, image: "/images/products/traditional-weave-tote.jpeg" },
   ]
+
+  const handleProductClick = (product: (typeof products)[0]) => {
+    const message = `Hi! I'm interested in the ${product.name} (${product.price}). Can you please provide more details and help me place an order?`
+    const whatsappUrl = `https://wa.me/923051966667?text=${encodeURIComponent(message)}`
+    window.open(whatsappUrl, "_blank")
+  }
+
+  const handleAddToCart = (e: React.MouseEvent, product: (typeof products)[0]) => {
+    e.stopPropagation() // Prevent card click when clicking the button
+    handleProductClick(product)
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100">
@@ -158,6 +173,12 @@ export default function Component() {
           <Button
             size="lg"
             className="bg-white text-black hover:bg-gray-200 px-8 py-3 text-lg font-medium transition-colors"
+            onClick={() => {
+              const message =
+                "Hi! I'm interested in your handmade bag collection. Can you please show me what's available?"
+              const whatsappUrl = `https://wa.me/923051966667?text=${encodeURIComponent(message)}`
+              window.open(whatsappUrl, "_blank")
+            }}
           >
             Shop Now
           </Button>
@@ -173,6 +194,11 @@ export default function Component() {
               <Card
                 key={index}
                 className="group cursor-pointer hover:shadow-xl transition-shadow bg-white border border-gray-200 hover:border-gray-400"
+                onClick={() => {
+                  const message = `Hi! I'm interested in your ${category.name} collection. Can you show me the available options?`
+                  const whatsappUrl = `https://wa.me/923051966667?text=${encodeURIComponent(message)}`
+                  window.open(whatsappUrl, "_blank")
+                }}
               >
                 <CardContent className="p-6 text-center">
                   <div className="relative mb-4 overflow-hidden rounded-lg">
@@ -202,6 +228,7 @@ export default function Component() {
               <Card
                 key={product.id}
                 className="group cursor-pointer hover:shadow-xl transition-shadow bg-white border border-gray-200 hover:border-gray-400"
+                onClick={() => handleProductClick(product)}
               >
                 <CardContent className="p-0">
                   <div className="relative overflow-hidden rounded-t-lg">
@@ -219,6 +246,10 @@ export default function Component() {
                       variant="ghost"
                       size="icon"
                       className="absolute top-3 right-3 bg-white/80 hover:bg-white text-gray-600 hover:text-black"
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        // Handle wishlist functionality here if needed
+                      }}
                     >
                       <Heart className="h-4 w-4" />
                     </Button>
@@ -236,8 +267,12 @@ export default function Component() {
                     <p className="text-sm text-gray-600 mb-2">{product.category}</p>
                     <div className="flex items-center justify-between">
                       <span className="text-lg font-semibold text-gray-900">{product.price}</span>
-                      <Button size="sm" className="bg-black text-white hover:bg-gray-800 transition-colors">
-                        Add to Cart
+                      <Button
+                        size="sm"
+                        className="bg-black text-white hover:bg-gray-800 transition-colors"
+                        onClick={(e) => handleAddToCart(e, product)}
+                      >
+                        Order Now
                       </Button>
                     </div>
                   </div>
@@ -290,14 +325,14 @@ export default function Component() {
                   <Button
                     variant="outline"
                     size="icon"
-                    className="border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400"
+                    className="border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400 bg-transparent"
                   >
                     <Instagram className="h-5 w-5" />
                   </Button>
                   <Button
                     variant="outline"
                     size="icon"
-                    className="border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400"
+                    className="border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400 bg-transparent"
                   >
                     <Facebook className="h-5 w-5" />
                   </Button>
