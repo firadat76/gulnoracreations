@@ -87,11 +87,20 @@ export default function Component() {
   ]
 
   const handleWhatsAppInquiry = (product: (typeof products)[0]) => {
-    const message = `Hi! I'd like to inquire about the ${product.name} (${product.price}). Can you please provide more details about:
+    const message = `Hi! I'd like to inquire about this product:
+
+🛍️ *${product.name}*
+💰 Price: ${product.price}
+📂 Category: ${product.category}
+🆔 Product ID: ${product.id}
+
+I'm interested in learning more about:
 - Material and dimensions
 - Availability
 - Shipping options
 - Any customization options
+
+*Please refer to the product image I'm viewing on your website for the exact design.*
 
 Thank you!`
     const whatsappUrl = `https://wa.me/923051966667?text=${encodeURIComponent(message)}`
@@ -99,13 +108,20 @@ Thank you!`
   }
 
   const handleWhatsAppPurchase = (product: (typeof products)[0]) => {
-    const message = `Hi! I would like to purchase the ${product.name} (${product.price}). 
+    const message = `Hi! I would like to purchase this product:
+
+🛍️ *${product.name}*
+💰 Price: ${product.price}
+📂 Category: ${product.category}
+🆔 Product ID: ${product.id}
 
 Please confirm:
 - Final price including shipping
 - Payment methods accepted
 - Delivery timeline
 - Order process
+
+*Please refer to the product image I'm viewing on your website for the exact design.*
 
 I'm ready to place the order. Thank you!`
     const whatsappUrl = `https://wa.me/923051966667?text=${encodeURIComponent(message)}`
