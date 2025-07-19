@@ -489,6 +489,7 @@ I'm ready to place the order. Thank you!`
                     variant="outline"
                     size="icon"
                     className="border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400 bg-transparent"
+                    onClick={() => window.open("https://www.instagram.com/gulnoraisma/", "_blank")}
                   >
                     <Instagram className="h-5 w-5" />
                   </Button>
@@ -496,6 +497,7 @@ I'm ready to place the order. Thank you!`
                     variant="outline"
                     size="icon"
                     className="border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400 bg-transparent"
+                    onClick={() => window.open("https://www.facebook.com/profile.php?id=61578798620764", "_blank")}
                   >
                     <Facebook className="h-5 w-5" />
                   </Button>
