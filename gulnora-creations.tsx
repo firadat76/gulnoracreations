@@ -30,6 +30,8 @@ export default function Component() {
       price: "PKR 4,000",
       category: "Tote Bags",
       image: "/images/products/traditional-weave-tote.jpeg",
+      tag: "TRAD-WEAVE-001",
+      description: "Traditional geometric weave pattern",
       rating: 5,
       isNew: true,
     },
@@ -39,6 +41,8 @@ export default function Component() {
       price: "PKR 2,500",
       category: "Tote Bags",
       image: "/images/products/abstract-swirl-tote.jpeg",
+      tag: "ABS-SWIRL-002",
+      description: "Abstract swirl design with modern patterns",
       rating: 5,
       isNew: false,
     },
@@ -48,6 +52,8 @@ export default function Component() {
       price: "PKR 4,000",
       category: "Tote Bags",
       image: "/images/products/floral-roses-tote.jpeg",
+      tag: "3D-ROSE-003",
+      description: "3D embroidered roses with floral details",
       rating: 5,
       isNew: true,
     },
@@ -57,6 +63,8 @@ export default function Component() {
       price: "PKR 2,500",
       category: "Tote Bags",
       image: "/images/products/strawberry-tote.jpeg",
+      tag: "BERRY-DEL-004",
+      description: "Cute strawberry pattern design",
       rating: 5,
       isNew: false,
     },
@@ -66,6 +74,8 @@ export default function Component() {
       price: "PKR 4,000",
       category: "Tote Bags",
       image: "/images/products/sunflower-tote.jpeg",
+      tag: "SUN-GARDEN-005",
+      description: "Bright sunflower garden theme",
       rating: 5,
       isNew: true,
     },
@@ -75,6 +85,8 @@ export default function Component() {
       price: "PKR 4,000",
       category: "Tote Bags",
       image: "/images/products/butterfly-tote.jpeg",
+      tag: "BUTTERFLY-006",
+      description: "Colorful butterfly pattern with nature theme",
       rating: 5,
       isNew: false,
     },
@@ -90,9 +102,11 @@ export default function Component() {
     const message = `Hi! I'd like to inquire about this product:
 
 🛍️ *${product.name}*
+🏷️ *Product Tag: ${product.tag}*
 💰 Price: ${product.price}
 📂 Category: ${product.category}
 🆔 Product ID: ${product.id}
+📝 Design: ${product.description}
 
 I'm interested in learning more about:
 - Material and dimensions
@@ -100,7 +114,7 @@ I'm interested in learning more about:
 - Shipping options
 - Any customization options
 
-*Please refer to the product image I'm viewing on your website for the exact design.*
+*Please refer to product tag "${product.tag}" for the exact design I'm viewing.*
 
 Thank you!`
     const whatsappUrl = `https://wa.me/923051966667?text=${encodeURIComponent(message)}`
@@ -111,9 +125,11 @@ Thank you!`
     const message = `Hi! I would like to purchase this product:
 
 🛍️ *${product.name}*
+🏷️ *Product Tag: ${product.tag}*
 💰 Price: ${product.price}
 📂 Category: ${product.category}
 🆔 Product ID: ${product.id}
+📝 Design: ${product.description}
 
 Please confirm:
 - Final price including shipping
@@ -121,7 +137,7 @@ Please confirm:
 - Delivery timeline
 - Order process
 
-*Please refer to the product image I'm viewing on your website for the exact design.*
+*Please refer to product tag "${product.tag}" for the exact design I want to purchase.*
 
 I'm ready to place the order. Thank you!`
     const whatsappUrl = `https://wa.me/923051966667?text=${encodeURIComponent(message)}`
@@ -338,8 +354,12 @@ I'm ready to place the order. Thank you!`
                             />
                             <div className="text-center space-y-2">
                               <h3 className="text-2xl font-semibold text-gray-900">{product.name}</h3>
+                              <p className="text-lg font-mono text-gray-600 bg-gray-100 px-3 py-1 rounded-full inline-block">
+                                {product.tag}
+                              </p>
                               <p className="text-xl font-bold text-gray-900">{product.price}</p>
                               <p className="text-gray-600">{product.category}</p>
+                              <p className="text-sm text-gray-500 italic">{product.description}</p>
                               <div className="flex items-center justify-center mb-2">
                                 {[...Array(5)].map((_, i) => (
                                   <Star
@@ -366,10 +386,13 @@ I'm ready to place the order. Thank you!`
                     {product.isNew && (
                       <Badge className="absolute top-3 left-3 bg-black text-white hover:bg-gray-800">New</Badge>
                     )}
+                    <Badge className="absolute top-3 right-3 bg-gray-800 text-white text-xs font-mono">
+                      {product.tag}
+                    </Badge>
                     <Button
                       variant="ghost"
                       size="icon"
-                      className="absolute top-3 right-3 bg-white/80 hover:bg-white text-gray-600 hover:text-black"
+                      className="absolute bottom-3 right-3 bg-white/80 hover:bg-white text-gray-600 hover:text-black"
                       onClick={(e) => {
                         e.stopPropagation()
                         // Handle wishlist functionality here if needed
@@ -388,7 +411,11 @@ I'm ready to place the order. Thank you!`
                       ))}
                     </div>
                     <h3 className="font-medium text-gray-900 mb-1">{product.name}</h3>
-                    <p className="text-sm text-gray-600 mb-2">{product.category}</p>
+                    <p className="text-xs font-mono text-gray-500 bg-gray-100 px-2 py-1 rounded mb-2 inline-block">
+                      {product.tag}
+                    </p>
+                    <p className="text-sm text-gray-600 mb-1">{product.category}</p>
+                    <p className="text-xs text-gray-500 mb-3 italic">{product.description}</p>
                     <div className="flex items-center justify-between mb-4">
                       <span className="text-lg font-semibold text-gray-900">{product.price}</span>
                     </div>
