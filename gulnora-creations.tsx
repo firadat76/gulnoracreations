@@ -1,12 +1,11 @@
 "use client"
-import { useState } from "react"
 
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
+import { Dialog, DialogContent, DialogTrigger, DialogClose } from "@/components/ui/dialog"
 import {
   Heart,
   ShoppingBag,
@@ -19,12 +18,11 @@ import {
   Menu,
   MessageCircle,
   Eye,
+  X,
 } from "lucide-react"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 
 export default function Component() {
-  const [selectedImage, setSelectedImage] = useState<string | null>(null)
-
   const products = [
     {
       id: 1,
@@ -247,14 +245,25 @@ I'm ready to place the order. Thank you!`
                           </div>
                         </div>
                       </DialogTrigger>
-                      <DialogContent className="max-w-3xl">
-                        <Image
-                          src={category.image || "/placeholder.svg"}
-                          alt={category.name}
-                          width={800}
-                          height={600}
-                          className="w-full h-auto object-contain rounded-lg"
-                        />
+                      <DialogContent className="max-w-3xl p-0 bg-transparent border-none">
+                        <div className="relative">
+                          <Image
+                            src={category.image || "/placeholder.svg"}
+                            alt={category.name}
+                            width={800}
+                            height={600}
+                            className="w-full h-auto object-contain rounded-lg"
+                          />
+                          <DialogClose asChild>
+                            <Button
+                              variant="ghost"
+                              size="icon"
+                              className="absolute top-4 right-4 bg-black/50 hover:bg-black/70 text-white rounded-full"
+                            >
+                              <X className="h-6 w-6" />
+                            </Button>
+                          </DialogClose>
+                        </div>
                       </DialogContent>
                     </Dialog>
                   </div>
@@ -301,20 +310,39 @@ I'm ready to place the order. Thank you!`
                           </div>
                         </div>
                       </DialogTrigger>
-                      <DialogContent className="max-w-3xl">
-                        <div className="space-y-4">
-                          <Image
-                            src={product.image || "/placeholder.svg"}
-                            alt={product.name}
-                            width={800}
-                            height={600}
-                            className="w-full h-auto object-contain rounded-lg"
-                          />
-                          <div className="text-center space-y-2">
-                            <h3 className="text-2xl font-semibold text-gray-900">{product.name}</h3>
-                            <p className="text-xl font-bold text-gray-900">{product.price}</p>
-                            <p className="text-gray-600">{product.category}</p>
+                      <DialogContent className="max-w-4xl p-0 bg-transparent border-none">
+                        <div className="relative">
+                          <div className="bg-white rounded-lg p-6">
+                            <Image
+                              src={product.image || "/placeholder.svg"}
+                              alt={product.name}
+                              width={800}
+                              height={600}
+                              className="w-full h-auto object-contain rounded-lg mb-4"
+                            />
+                            <div className="text-center space-y-2">
+                              <h3 className="text-2xl font-semibold text-gray-900">{product.name}</h3>
+                              <p className="text-xl font-bold text-gray-900">{product.price}</p>
+                              <p className="text-gray-600">{product.category}</p>
+                              <div className="flex items-center justify-center mb-2">
+                                {[...Array(5)].map((_, i) => (
+                                  <Star
+                                    key={i}
+                                    className={`h-4 w-4 ${i < product.rating ? "text-gray-800 fill-current" : "text-gray-300"}`}
+                                  />
+                                ))}
+                              </div>
+                            </div>
                           </div>
+                          <DialogClose asChild>
+                            <Button
+                              variant="ghost"
+                              size="icon"
+                              className="absolute top-4 right-4 bg-black/50 hover:bg-black/70 text-white rounded-full"
+                            >
+                              <X className="h-6 w-6" />
+                            </Button>
+                          </DialogClose>
                         </div>
                       </DialogContent>
                     </Dialog>
@@ -448,14 +476,27 @@ I'm ready to place the order. Thank you!`
                       />
                     </div>
                   </DialogTrigger>
-                  <DialogContent className="max-w-md">
-                    <Image
-                      src="/images/gulnora-qr.png"
-                      alt="QR Code for Gulnora Creations"
-                      width={400}
-                      height={400}
-                      className="w-full h-auto object-contain rounded-lg"
-                    />
+                  <DialogContent className="max-w-md p-0 bg-transparent border-none">
+                    <div className="relative">
+                      <div className="bg-white rounded-lg p-4">
+                        <Image
+                          src="/images/gulnora-qr.png"
+                          alt="QR Code for Gulnora Creations"
+                          width={400}
+                          height={400}
+                          className="w-full h-auto object-contain rounded-lg"
+                        />
+                      </div>
+                      <DialogClose asChild>
+                        <Button
+                          variant="ghost"
+                          size="icon"
+                          className="absolute top-2 right-2 bg-black/50 hover:bg-black/70 text-white rounded-full"
+                        >
+                          <X className="h-6 w-6" />
+                        </Button>
+                      </DialogClose>
+                    </div>
                   </DialogContent>
                 </Dialog>
               </div>
