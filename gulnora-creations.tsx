@@ -1,16 +1,30 @@
 "use client"
-
-import type React from "react"
+import { useState } from "react"
 
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Heart, ShoppingBag, Star, Phone, Mail, Globe, Instagram, Facebook, Menu } from "lucide-react"
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
+import {
+  Heart,
+  ShoppingBag,
+  Star,
+  Phone,
+  Mail,
+  Globe,
+  Instagram,
+  Facebook,
+  Menu,
+  MessageCircle,
+  Eye,
+} from "lucide-react"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 
 export default function Component() {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null)
+
   const products = [
     {
       id: 1,
@@ -74,15 +88,36 @@ export default function Component() {
     { name: "Traditional Crafts", count: 2, image: "/images/products/traditional-weave-tote.jpeg" },
   ]
 
-  const handleProductClick = (product: (typeof products)[0]) => {
-    const message = `Hi! I'm interested in the ${product.name} (${product.price}). Can you please provide more details and help me place an order?`
+  const handleWhatsAppInquiry = (product: (typeof products)[0]) => {
+    const message = `Hi! I'd like to inquire about the ${product.name} (${product.price}). Can you please provide more details about:
+- Material and dimensions
+- Availability
+- Shipping options
+- Any customization options
+
+Thank you!`
     const whatsappUrl = `https://wa.me/923051966667?text=${encodeURIComponent(message)}`
     window.open(whatsappUrl, "_blank")
   }
 
-  const handleAddToCart = (e: React.MouseEvent, product: (typeof products)[0]) => {
-    e.stopPropagation() // Prevent card click when clicking the button
-    handleProductClick(product)
+  const handleWhatsAppPurchase = (product: (typeof products)[0]) => {
+    const message = `Hi! I would like to purchase the ${product.name} (${product.price}). 
+
+Please confirm:
+- Final price including shipping
+- Payment methods accepted
+- Delivery timeline
+- Order process
+
+I'm ready to place the order. Thank you!`
+    const whatsappUrl = `https://wa.me/923051966667?text=${encodeURIComponent(message)}`
+    window.open(whatsappUrl, "_blank")
+  }
+
+  const handleCategoryInquiry = (category: (typeof categories)[0]) => {
+    const message = `Hi! I'm interested in your ${category.name} collection. Can you show me all available options in this category? I'd like to know about pricing, availability, and any special offers. Thank you!`
+    const whatsappUrl = `https://wa.me/923051966667?text=${encodeURIComponent(message)}`
+    window.open(whatsappUrl, "_blank")
   }
 
   return (
@@ -193,25 +228,45 @@ export default function Component() {
             {categories.map((category, index) => (
               <Card
                 key={index}
-                className="group cursor-pointer hover:shadow-xl transition-shadow bg-white border border-gray-200 hover:border-gray-400"
-                onClick={() => {
-                  const message = `Hi! I'm interested in your ${category.name} collection. Can you show me the available options?`
-                  const whatsappUrl = `https://wa.me/923051966667?text=${encodeURIComponent(message)}`
-                  window.open(whatsappUrl, "_blank")
-                }}
+                className="group bg-white border border-gray-200 hover:border-gray-400 hover:shadow-xl transition-all"
               >
                 <CardContent className="p-6 text-center">
                   <div className="relative mb-4 overflow-hidden rounded-lg">
-                    <Image
-                      src={category.image || "/placeholder.svg"}
-                      alt={category.name}
-                      width={200}
-                      height={200}
-                      className="w-full h-48 object-cover group-hover:scale-105 transition-transform grayscale-0 group-hover:grayscale-0"
-                    />
+                    <Dialog>
+                      <DialogTrigger asChild>
+                        <div className="relative cursor-pointer group">
+                          <Image
+                            src={category.image || "/placeholder.svg"}
+                            alt={category.name}
+                            width={200}
+                            height={200}
+                            className="w-full h-48 object-cover group-hover:scale-105 transition-transform"
+                          />
+                          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                            <Eye className="h-8 w-8 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
+                          </div>
+                        </div>
+                      </DialogTrigger>
+                      <DialogContent className="max-w-3xl">
+                        <Image
+                          src={category.image || "/placeholder.svg"}
+                          alt={category.name}
+                          width={800}
+                          height={600}
+                          className="w-full h-auto object-contain rounded-lg"
+                        />
+                      </DialogContent>
+                    </Dialog>
                   </div>
                   <h3 className="text-xl font-medium text-gray-900 mb-2">{category.name}</h3>
-                  <p className="text-gray-600">{category.count} items</p>
+                  <p className="text-gray-600 mb-4">{category.count} items</p>
+                  <Button
+                    onClick={() => handleCategoryInquiry(category)}
+                    className="w-full bg-black text-white hover:bg-gray-800 transition-colors"
+                  >
+                    <MessageCircle className="h-4 w-4 mr-2" />
+                    Inquire About Collection
+                  </Button>
                 </CardContent>
               </Card>
             ))}
@@ -227,18 +282,43 @@ export default function Component() {
             {products.map((product) => (
               <Card
                 key={product.id}
-                className="group cursor-pointer hover:shadow-xl transition-shadow bg-white border border-gray-200 hover:border-gray-400"
-                onClick={() => handleProductClick(product)}
+                className="group bg-white border border-gray-200 hover:border-gray-400 hover:shadow-xl transition-all"
               >
                 <CardContent className="p-0">
                   <div className="relative overflow-hidden rounded-t-lg">
-                    <Image
-                      src={product.image || "/placeholder.svg"}
-                      alt={product.name}
-                      width={300}
-                      height={300}
-                      className="w-full h-64 object-cover group-hover:scale-105 transition-transform"
-                    />
+                    <Dialog>
+                      <DialogTrigger asChild>
+                        <div className="relative cursor-pointer group">
+                          <Image
+                            src={product.image || "/placeholder.svg"}
+                            alt={product.name}
+                            width={300}
+                            height={300}
+                            className="w-full h-64 object-cover group-hover:scale-105 transition-transform"
+                          />
+                          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                            <Eye className="h-8 w-8 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
+                          </div>
+                        </div>
+                      </DialogTrigger>
+                      <DialogContent className="max-w-3xl">
+                        <div className="space-y-4">
+                          <Image
+                            src={product.image || "/placeholder.svg"}
+                            alt={product.name}
+                            width={800}
+                            height={600}
+                            className="w-full h-auto object-contain rounded-lg"
+                          />
+                          <div className="text-center space-y-2">
+                            <h3 className="text-2xl font-semibold text-gray-900">{product.name}</h3>
+                            <p className="text-xl font-bold text-gray-900">{product.price}</p>
+                            <p className="text-gray-600">{product.category}</p>
+                          </div>
+                        </div>
+                      </DialogContent>
+                    </Dialog>
+
                     {product.isNew && (
                       <Badge className="absolute top-3 left-3 bg-black text-white hover:bg-gray-800">New</Badge>
                     )}
@@ -265,14 +345,26 @@ export default function Component() {
                     </div>
                     <h3 className="font-medium text-gray-900 mb-1">{product.name}</h3>
                     <p className="text-sm text-gray-600 mb-2">{product.category}</p>
-                    <div className="flex items-center justify-between">
+                    <div className="flex items-center justify-between mb-4">
                       <span className="text-lg font-semibold text-gray-900">{product.price}</span>
+                    </div>
+
+                    {/* WhatsApp Action Buttons */}
+                    <div className="space-y-2">
                       <Button
-                        size="sm"
-                        className="bg-black text-white hover:bg-gray-800 transition-colors"
-                        onClick={(e) => handleAddToCart(e, product)}
+                        onClick={() => handleWhatsAppInquiry(product)}
+                        variant="outline"
+                        className="w-full border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400"
                       >
-                        Order Now
+                        <MessageCircle className="h-4 w-4 mr-2" />
+                        Inquire More Details
+                      </Button>
+                      <Button
+                        onClick={() => handleWhatsAppPurchase(product)}
+                        className="w-full bg-green-600 text-white hover:bg-green-700 transition-colors"
+                      >
+                        <MessageCircle className="h-4 w-4 mr-2" />
+                        Send Purchase Request
                       </Button>
                     </div>
                   </div>
@@ -344,13 +436,28 @@ export default function Component() {
               <div className="bg-gray-50 p-8 rounded-lg border border-gray-200">
                 <h3 className="text-xl font-medium text-gray-900 mb-4">Quick Access</h3>
                 <p className="text-gray-700 mb-6">Scan the QR code for easy access to our store</p>
-                <Image
-                  src="/images/gulnora-qr.png"
-                  alt="QR Code for Gulnora Creations"
-                  width={200}
-                  height={200}
-                  className="mx-auto rounded-lg"
-                />
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <div className="cursor-pointer">
+                      <Image
+                        src="/images/gulnora-qr.png"
+                        alt="QR Code for Gulnora Creations"
+                        width={200}
+                        height={200}
+                        className="mx-auto rounded-lg hover:scale-105 transition-transform"
+                      />
+                    </div>
+                  </DialogTrigger>
+                  <DialogContent className="max-w-md">
+                    <Image
+                      src="/images/gulnora-qr.png"
+                      alt="QR Code for Gulnora Creations"
+                      width={400}
+                      height={400}
+                      className="w-full h-auto object-contain rounded-lg"
+                    />
+                  </DialogContent>
+                </Dialog>
               </div>
             </div>
           </div>
