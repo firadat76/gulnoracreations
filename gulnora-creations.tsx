@@ -435,7 +435,7 @@ I'm ready to place the order. Thank you!`
                 </div>
                 <div>
                   <p className="font-medium text-gray-900">Website</p>
-                  <p className="text-gray-700">gulnoracreations.shop</p>
+                  <p className="text-gray-700">gulnoracreations.com</p>
                 </div>
               </div>
 
