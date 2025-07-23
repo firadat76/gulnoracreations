@@ -26,76 +26,130 @@ export default function Component() {
   const products = [
     {
       id: 1,
-      name: "Traditional Weave Tote",
-      price: "PKR 4,000",
+      name: "Portrait Floral Elegance Tote",
+      price: "PKR 5,000",
+      size: "Large",
       category: "Tote Bags",
-      image: "/images/products/traditional-weave-tote.jpeg",
-      tag: "TRAD-WEAVE-001",
-      description: "Traditional geometric weave pattern",
+      image: "/images/products/portrait-floral-tote.jpeg",
+      tag: "PORT-FLORAL-001",
+      description: "Elegant brown tote with ornate floral patterns and portrait centerpiece",
       rating: 5,
       isNew: true,
     },
     {
       id: 2,
-      name: "Abstract Swirl Tote",
-      price: "PKR 2,500",
+      name: "Geometric Diamond Tote",
+      price: "PKR 3,000",
+      size: "Small",
       category: "Tote Bags",
-      image: "/images/products/abstract-swirl-tote.jpeg",
-      tag: "ABS-SWIRL-002",
-      description: "Abstract swirl design with modern patterns",
+      image: "/images/products/geometric-diamond-tote.jpeg",
+      tag: "GEO-DIAMOND-002",
+      description: "Gray tote with vibrant geometric diamond pattern and colorful tassels",
       rating: 5,
       isNew: false,
     },
     {
       id: 3,
-      name: "3D Floral Roses Tote",
-      price: "PKR 4,000",
+      name: "Ocean Shells Paradise Tote",
+      price: "PKR 5,000",
+      size: "Large",
       category: "Tote Bags",
-      image: "/images/products/floral-roses-tote.jpeg",
-      tag: "3D-ROSE-003",
-      description: "3D embroidered roses with floral details",
+      image: "/images/products/ocean-shells-tote.jpeg",
+      tag: "OCEAN-SHELL-003",
+      description: "Black tote featuring beautiful ocean waves and seashell artwork",
       rating: 5,
       isNew: true,
     },
     {
       id: 4,
-      name: "Strawberry Delight Tote",
-      price: "PKR 2,500",
+      name: "Sunset Beach Scene Tote",
+      price: "PKR 3,000",
+      size: "Small",
       category: "Tote Bags",
-      image: "/images/products/strawberry-tote.jpeg",
-      tag: "BERRY-DEL-004",
-      description: "Cute strawberry pattern design",
+      image: "/images/products/sunset-beach-tote.jpeg",
+      tag: "SUNSET-BEACH-004",
+      description: "Cream tote with stunning sunset beach painting and rope handles",
       rating: 5,
       isNew: false,
     },
     {
       id: 5,
-      name: "Sunflower Garden Tote",
-      price: "PKR 4,000",
+      name: "Tropical Plumeria Tote",
+      price: "PKR 3,000",
+      size: "Small",
       category: "Tote Bags",
-      image: "/images/products/sunflower-tote.jpeg",
-      tag: "SUN-GARDEN-005",
-      description: "Bright sunflower garden theme",
+      image: "/images/products/tropical-plumeria-tote.jpeg",
+      tag: "TROPICAL-PLUM-005",
+      description: "Beige tote with hand-painted tropical plumeria flowers and leaves",
       rating: 5,
       isNew: true,
     },
     {
       id: 6,
-      name: "Butterfly Dreams Tote",
-      price: "PKR 4,000",
+      name: "Strawberry Characters Tote",
+      price: "PKR 5,000",
+      size: "Large",
       category: "Tote Bags",
-      image: "/images/products/butterfly-tote.jpeg",
-      tag: "BUTTERFLY-006",
-      description: "Colorful butterfly pattern with nature theme",
+      image: "/images/products/strawberry-characters-tote.jpeg",
+      tag: "STRAWBERRY-CHAR-006",
+      description: "White tote with adorable strawberry characters and green leaf design",
+      rating: 5,
+      isNew: false,
+    },
+    {
+      id: 7,
+      name: "Abstract Portrait Art Tote",
+      price: "PKR 5,000",
+      size: "Large",
+      category: "Tote Bags",
+      image: "/images/products/abstract-portrait-tote.jpeg",
+      tag: "ABS-PORTRAIT-007",
+      description: "White tote featuring modern abstract portrait in red, black and white",
+      rating: 5,
+      isNew: true,
+    },
+    {
+      id: 8,
+      name: "3D Roses Navy Tote",
+      price: "PKR 5,000",
+      size: "Large",
+      category: "Tote Bags",
+      image: "/images/products/3d-roses-navy-tote.jpeg",
+      tag: "3D-ROSES-NAVY-008",
+      description: "Navy blue tote with 3D fabric roses and decorative rope handles",
+      rating: 5,
+      isNew: false,
+    },
+    {
+      id: 9,
+      name: "Floral Hair Portrait Tote",
+      price: "PKR 5,000",
+      size: "Large",
+      category: "Tote Bags",
+      image: "/images/products/floral-hair-portrait-tote.jpeg",
+      tag: "FLORAL-HAIR-009",
+      description: "Red and white tote with elegant woman portrait and floral hair decoration",
+      rating: 5,
+      isNew: true,
+    },
+    {
+      id: 10,
+      name: "Orange Characters Tote",
+      price: "PKR 3,000",
+      size: "Small",
+      category: "Tote Bags",
+      image: "/images/products/orange-characters-tote.jpeg",
+      tag: "ORANGE-CHAR-010",
+      description: "White tote with cute orange fruit characters and green leaf patterns",
       rating: 5,
       isNew: false,
     },
   ]
 
   const categories = [
-    { name: "Artistic Designs", count: 4, image: "/images/products/abstract-swirl-tote.jpeg" },
-    { name: "Floral Collection", count: 3, image: "/images/products/sunflower-tote.jpeg" },
-    { name: "Traditional Crafts", count: 2, image: "/images/products/traditional-weave-tote.jpeg" },
+    { name: "Artistic Portraits", count: 4, image: "/images/products/portrait-floral-tote.jpeg" },
+    { name: "Nature & Floral", count: 3, image: "/images/products/tropical-plumeria-tote.jpeg" },
+    { name: "Character Designs", count: 3, image: "/images/products/strawberry-characters-tote.jpeg" },
   ]
 
   const handleWhatsAppInquiry = (product: (typeof products)[0]) => {
@@ -104,6 +158,7 @@ export default function Component() {
 🛍️ *${product.name}*
 🏷️ *Product Tag: ${product.tag}*
 💰 Price: ${product.price}
+📏 Size: ${product.size}
 📂 Category: ${product.category}
 🆔 Product ID: ${product.id}
 📝 Design: ${product.description}
@@ -127,6 +182,7 @@ Thank you!`
 🛍️ *${product.name}*
 🏷️ *Product Tag: ${product.tag}*
 💰 Price: ${product.price}
+📏 Size: ${product.size}
 📂 Category: ${product.category}
 🆔 Product ID: ${product.id}
 📝 Design: ${product.description}
@@ -235,6 +291,17 @@ I'm ready to place the order. Thank you!`
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
             Discover our collection of beautifully handmade bags, each piece crafted with care and attention to detail.
           </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
+            <div className="text-center">
+              <p className="text-gray-300 text-sm mb-1">Small Bags</p>
+              <p className="text-white text-2xl font-bold">PKR 3,000</p>
+            </div>
+            <div className="hidden sm:block w-px h-12 bg-gray-600"></div>
+            <div className="text-center">
+              <p className="text-gray-300 text-sm mb-1">Large Bags</p>
+              <p className="text-white text-2xl font-bold">PKR 5,000</p>
+            </div>
+          </div>
           <Button
             size="lg"
             className="bg-white text-black hover:bg-gray-200 px-8 py-3 text-lg font-medium transition-colors"
@@ -319,7 +386,7 @@ I'm ready to place the order. Thank you!`
       <section id="products" className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-light text-gray-900 text-center mb-12">Featured Products</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
             {products.map((product) => (
               <Card
                 key={product.id}
@@ -357,7 +424,12 @@ I'm ready to place the order. Thank you!`
                               <p className="text-lg font-mono text-gray-600 bg-gray-100 px-3 py-1 rounded-full inline-block">
                                 {product.tag}
                               </p>
-                              <p className="text-xl font-bold text-gray-900">{product.price}</p>
+                              <div className="flex items-center justify-center gap-4">
+                                <p className="text-xl font-bold text-gray-900">{product.price}</p>
+                                <Badge variant="outline" className="text-sm">
+                                  {product.size}
+                                </Badge>
+                              </div>
                               <p className="text-gray-600">{product.category}</p>
                               <p className="text-sm text-gray-500 italic">{product.description}</p>
                               <div className="flex items-center justify-center mb-2">
@@ -389,6 +461,13 @@ I'm ready to place the order. Thank you!`
                     <Badge className="absolute top-3 right-3 bg-gray-800 text-white text-xs font-mono">
                       {product.tag}
                     </Badge>
+                    <Badge
+                      className={`absolute bottom-3 left-3 text-xs ${
+                        product.size === "Large" ? "bg-blue-600 text-white" : "bg-green-600 text-white"
+                      }`}
+                    >
+                      {product.size}
+                    </Badge>
                     <Button
                       variant="ghost"
                       size="icon"
@@ -414,7 +493,12 @@ I'm ready to place the order. Thank you!`
                     <p className="text-xs font-mono text-gray-500 bg-gray-100 px-2 py-1 rounded mb-2 inline-block">
                       {product.tag}
                     </p>
-                    <p className="text-sm text-gray-600 mb-1">{product.category}</p>
+                    <div className="flex items-center justify-between mb-2">
+                      <p className="text-sm text-gray-600">{product.category}</p>
+                      <Badge variant="outline" className="text-xs">
+                        {product.size}
+                      </Badge>
+                    </div>
                     <p className="text-xs text-gray-500 mb-3 italic">{product.description}</p>
                     <div className="flex items-center justify-between mb-4">
                       <span className="text-lg font-semibold text-gray-900">{product.price}</span>
