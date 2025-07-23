@@ -5,21 +5,8 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Dialog, DialogContent, DialogTrigger, DialogClose } from "@/components/ui/dialog"
-import {
-  Heart,
-  ShoppingBag,
-  Star,
-  Phone,
-  Mail,
-  Globe,
-  Instagram,
-  Facebook,
-  Menu,
-  MessageCircle,
-  Eye,
-  X,
-} from "lucide-react"
+import { Dialog, DialogContent, DialogTrigger, DialogClose, DialogHeader, DialogTitle } from "@/components/ui/dialog"
+import { Heart, Star, Phone, Mail, Globe, Instagram, Facebook, Menu, MessageCircle, Eye, X } from "lucide-react"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 
 export default function Component() {
@@ -236,15 +223,6 @@ I'm ready to place the order. Thank you!`
               <Link href="#contact" className="text-gray-300 hover:text-white font-medium transition-colors">
                 Contact
               </Link>
-            </div>
-
-            <div className="hidden md:flex items-center space-x-4">
-              <Button variant="ghost" size="icon" className="text-gray-300 hover:text-white hover:bg-gray-800">
-                <Heart className="h-5 w-5" />
-              </Button>
-              <Button variant="ghost" size="icon" className="text-gray-300 hover:text-white hover:bg-gray-800">
-                <ShoppingBag className="h-5 w-5" />
-              </Button>
             </div>
 
             {/* Mobile Navigation */}
@@ -646,15 +624,193 @@ I'm ready to place the order. Thank you!`
           />
           <p className="text-gray-300 mb-6">Handcrafted bags made with love and attention to detail</p>
           <div className="flex justify-center space-x-6 mb-6">
-            <Link href="#" className="text-gray-300 hover:text-white transition-colors">
-              Privacy Policy
-            </Link>
-            <Link href="#" className="text-gray-300 hover:text-white transition-colors">
-              Terms of Service
-            </Link>
-            <Link href="#" className="text-gray-300 hover:text-white transition-colors">
-              Shipping Info
-            </Link>
+            <Dialog>
+              <DialogTrigger asChild>
+                <button className="text-gray-300 hover:text-white transition-colors">Privacy Policy</button>
+              </DialogTrigger>
+              <DialogContent className="max-w-md">
+                <DialogHeader>
+                  <DialogTitle className="text-xl font-semibold text-gray-900 mb-4">🔒 Privacy Policy</DialogTitle>
+                  <div className="text-gray-600 space-y-4">
+                    <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
+                      <div className="flex items-center mb-3">
+                        <Eye className="h-5 w-5 text-amber-600 mr-2" />
+                        <span className="font-medium text-amber-800">Artwork & Design Protection</span>
+                      </div>
+                      <p className="text-amber-700 text-sm mb-3">
+                        All designs, artwork, and creative styles displayed on this website are the exclusive
+                        intellectual property of Gulnora Creations.
+                      </p>
+                      <div className="space-y-2 text-sm text-amber-700">
+                        <p>
+                          • <strong>Copyright Protected:</strong> All designs are original and copyrighted
+                        </p>
+                        <p>
+                          • <strong>No Copying Allowed:</strong> Reproduction of artwork is strictly prohibited
+                        </p>
+                        <p>
+                          • <strong>Style Protection:</strong> Copying our unique style is not permitted
+                        </p>
+                        <p>
+                          • <strong>Legal Action:</strong> Unauthorized copying may lead to litigation
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+                      <div className="flex items-center mb-2">
+                        <X className="h-4 w-4 text-red-600 mr-2" />
+                        <span className="font-medium text-red-800 text-sm">Legal Warning</span>
+                      </div>
+                      <p className="text-red-700 text-xs">
+                        Any unauthorized reproduction, copying, or imitation of our designs, artwork, or creative style
+                        will result in immediate legal action. We actively protect our intellectual property rights.
+                      </p>
+                    </div>
+
+                    <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                      <div className="flex items-center mb-2">
+                        <MessageCircle className="h-4 w-4 text-blue-600 mr-2" />
+                        <span className="font-medium text-blue-800 text-sm">Questions About Usage?</span>
+                      </div>
+                      <p className="text-blue-700 text-xs">
+                        If you have questions about licensing or authorized use of our designs, please contact us
+                        directly.
+                      </p>
+                    </div>
+
+                    <div className="text-center pt-4">
+                      <Button
+                        onClick={() => {
+                          const message =
+                            "Hi! I have questions about licensing or authorized use of your designs. Can you provide more information? Thank you!"
+                          const whatsappUrl = `https://wa.me/923051966667?text=${encodeURIComponent(message)}`
+                          window.open(whatsappUrl, "_blank")
+                        }}
+                        className="bg-blue-600 text-white hover:bg-blue-700 w-full"
+                      >
+                        <MessageCircle className="h-4 w-4 mr-2" />
+                        Contact About Licensing
+                      </Button>
+                    </div>
+                  </div>
+                </DialogHeader>
+              </DialogContent>
+            </Dialog>
+            <Dialog>
+              <DialogTrigger asChild>
+                <button className="text-gray-300 hover:text-white transition-colors">Terms of Service</button>
+              </DialogTrigger>
+              <DialogContent className="max-w-md">
+                <DialogHeader>
+                  <DialogTitle className="text-xl font-semibold text-gray-900 mb-4">📋 Terms of Service</DialogTitle>
+                  <div className="text-gray-600 space-y-4">
+                    <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+                      <div className="flex items-center mb-3">
+                        <X className="h-5 w-5 text-red-600 mr-2" />
+                        <span className="font-medium text-red-800">No Returns • No Exchanges</span>
+                      </div>
+                      <p className="text-red-700 text-sm mb-3">
+                        All sales are final. We do not accept returns or exchanges on any handmade products.
+                      </p>
+                      <div className="space-y-2 text-sm text-red-700">
+                        <p>
+                          • <strong>Final Sale:</strong> All purchases are considered final
+                        </p>
+                        <p>
+                          • <strong>Quality Assurance:</strong> Each item is carefully inspected before shipping
+                        </p>
+                        <p>
+                          • <strong>Custom Orders:</strong> Made-to-order items cannot be returned
+                        </p>
+                        <p>
+                          • <strong>Questions:</strong> Please ask all questions before purchasing
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                      <div className="flex items-center mb-2">
+                        <MessageCircle className="h-4 w-4 text-blue-600 mr-2" />
+                        <span className="font-medium text-blue-800 text-sm">Need Help?</span>
+                      </div>
+                      <p className="text-blue-700 text-xs">
+                        Contact us on WhatsApp before purchasing if you have any questions about size, material, or
+                        design.
+                      </p>
+                    </div>
+
+                    <div className="text-center pt-4">
+                      <Button
+                        onClick={() => {
+                          const message =
+                            "Hi! I have questions about a product before making a purchase. Can you help me with the details? Thank you!"
+                          const whatsappUrl = `https://wa.me/923051966667?text=${encodeURIComponent(message)}`
+                          window.open(whatsappUrl, "_blank")
+                        }}
+                        className="bg-blue-600 text-white hover:bg-blue-700 w-full"
+                      >
+                        <MessageCircle className="h-4 w-4 mr-2" />
+                        Ask Questions Before Purchase
+                      </Button>
+                    </div>
+                  </div>
+                </DialogHeader>
+              </DialogContent>
+            </Dialog>
+            <Dialog>
+              <DialogTrigger asChild>
+                <button className="text-gray-300 hover:text-white transition-colors">Shipping Info</button>
+              </DialogTrigger>
+              <DialogContent className="max-w-md">
+                <DialogHeader>
+                  <DialogTitle className="text-xl font-semibold text-gray-900 mb-4">
+                    📦 Shipping & Order Information
+                  </DialogTitle>
+                  <div className="text-gray-600 space-y-4">
+                    <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+                      <div className="flex items-center mb-3">
+                        <MessageCircle className="h-5 w-5 text-green-600 mr-2" />
+                        <span className="font-medium text-green-800">WhatsApp Orders Only</span>
+                      </div>
+                      <p className="text-green-700 text-sm mb-3">
+                        All orders and queries are processed exclusively through WhatsApp for personalized service and
+                        quick communication.
+                      </p>
+                      <div className="space-y-2 text-sm text-green-700">
+                        <p>
+                          • <strong>Order Process:</strong> Send product details via WhatsApp
+                        </p>
+                        <p>
+                          • <strong>Payment:</strong> Confirmed through WhatsApp chat
+                        </p>
+                        <p>
+                          • <strong>Shipping:</strong> Arranged after order confirmation
+                        </p>
+                        <p>
+                          • <strong>Tracking:</strong> Updates sent via WhatsApp
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="text-center pt-4">
+                      <Button
+                        onClick={() => {
+                          const message =
+                            "Hi! I'd like to know more about your shipping process and how to place an order. Thank you!"
+                          const whatsappUrl = `https://wa.me/923051966667?text=${encodeURIComponent(message)}`
+                          window.open(whatsappUrl, "_blank")
+                        }}
+                        className="bg-green-600 text-white hover:bg-green-700 w-full"
+                      >
+                        <MessageCircle className="h-4 w-4 mr-2" />
+                        Contact Us on WhatsApp
+                      </Button>
+                    </div>
+                  </div>
+                </DialogHeader>
+              </DialogContent>
+            </Dialog>
           </div>
           <p className="text-gray-400 text-sm">© 2024 Gulnora Creations. All rights reserved.</p>
         </div>
