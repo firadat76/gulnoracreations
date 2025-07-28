@@ -14,7 +14,7 @@ export default function Component() {
     {
       id: 1,
       name: "Portrait Floral Elegance Tote",
-      price: "PKR 5,000",
+      price: "PKR 3,000",
       size: "Large",
       category: "Tote Bags",
       image: "/images/products/portrait-floral-tote.jpeg",
@@ -26,7 +26,7 @@ export default function Component() {
     {
       id: 2,
       name: "Geometric Diamond Tote",
-      price: "PKR 3,000",
+      price: "PKR 2,000",
       size: "Small",
       category: "Tote Bags",
       image: "/images/products/geometric-diamond-tote.jpeg",
@@ -38,7 +38,7 @@ export default function Component() {
     {
       id: 3,
       name: "Ocean Shells Paradise Tote",
-      price: "PKR 5,000",
+      price: "PKR 3,000",
       size: "Large",
       category: "Tote Bags",
       image: "/images/products/ocean-shells-tote.jpeg",
@@ -50,7 +50,7 @@ export default function Component() {
     {
       id: 4,
       name: "Sunset Beach Scene Tote",
-      price: "PKR 3,000",
+      price: "PKR 2,000",
       size: "Small",
       category: "Tote Bags",
       image: "/images/products/sunset-beach-tote.jpeg",
@@ -62,7 +62,7 @@ export default function Component() {
     {
       id: 5,
       name: "Tropical Plumeria Tote",
-      price: "PKR 3,000",
+      price: "PKR 2,000",
       size: "Small",
       category: "Tote Bags",
       image: "/images/products/tropical-plumeria-tote.jpeg",
@@ -74,7 +74,7 @@ export default function Component() {
     {
       id: 6,
       name: "Strawberry Characters Tote",
-      price: "PKR 5,000",
+      price: "PKR 3,000",
       size: "Large",
       category: "Tote Bags",
       image: "/images/products/strawberry-characters-tote.jpeg",
@@ -86,7 +86,7 @@ export default function Component() {
     {
       id: 7,
       name: "Abstract Portrait Art Tote",
-      price: "PKR 5,000",
+      price: "PKR 3,000",
       size: "Large",
       category: "Tote Bags",
       image: "/images/products/abstract-portrait-tote.jpeg",
@@ -98,7 +98,7 @@ export default function Component() {
     {
       id: 8,
       name: "3D Roses Navy Tote",
-      price: "PKR 5,000",
+      price: "PKR 3,000",
       size: "Large",
       category: "Tote Bags",
       image: "/images/products/3d-roses-navy-tote.jpeg",
@@ -110,7 +110,7 @@ export default function Component() {
     {
       id: 9,
       name: "Floral Hair Portrait Tote",
-      price: "PKR 5,000",
+      price: "PKR 3,000",
       size: "Large",
       category: "Tote Bags",
       image: "/images/products/floral-hair-portrait-tote.jpeg",
@@ -122,7 +122,7 @@ export default function Component() {
     {
       id: 10,
       name: "Orange Characters Tote",
-      price: "PKR 3,000",
+      price: "PKR 2,000",
       size: "Small",
       category: "Tote Bags",
       image: "/images/products/orange-characters-tote.jpeg",
@@ -272,12 +272,12 @@ I'm ready to place the order. Thank you!`
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
             <div className="text-center">
               <p className="text-gray-300 text-sm mb-1">Small Bags</p>
-              <p className="text-white text-2xl font-bold">PKR 3,000</p>
+              <p className="text-white text-2xl font-bold">PKR 2,000</p>
             </div>
             <div className="hidden sm:block w-px h-12 bg-gray-600"></div>
             <div className="text-center">
               <p className="text-gray-300 text-sm mb-1">Large Bags</p>
-              <p className="text-white text-2xl font-bold">PKR 5,000</p>
+              <p className="text-white text-2xl font-bold">PKR 3,000</p>
             </div>
           </div>
           <Button
