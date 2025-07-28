@@ -315,7 +315,7 @@ I'm ready to place the order. Thank you!`
                             alt={category.name}
                             width={200}
                             height={200}
-                            className="w-full h-48 object-cover group-hover:scale-105 transition-transform"
+                            className="w-full h-48 object-contain bg-white group-hover:scale-105 transition-transform"
                           />
                           <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
                             <Eye className="h-8 w-8 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -329,7 +329,7 @@ I'm ready to place the order. Thank you!`
                             alt={category.name}
                             width={800}
                             height={600}
-                            className="w-full h-auto object-contain rounded-lg"
+                            className="w-full h-auto object-contain bg-white rounded-lg max-h-96"
                           />
                           <DialogClose asChild>
                             <Button
@@ -380,7 +380,7 @@ I'm ready to place the order. Thank you!`
                             alt={product.name}
                             width={300}
                             height={300}
-                            className="w-full h-64 object-cover group-hover:scale-105 transition-transform"
+                            className="w-full h-64 object-contain bg-white group-hover:scale-105 transition-transform"
                           />
                           <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
                             <Eye className="h-8 w-8 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -395,7 +395,7 @@ I'm ready to place the order. Thank you!`
                               alt={product.name}
                               width={800}
                               height={600}
-                              className="w-full h-auto object-contain rounded-lg mb-4"
+                              className="w-full h-auto object-contain bg-white rounded-lg mb-4 max-h-96"
                             />
                             <div className="text-center space-y-2">
                               <h3 className="text-2xl font-semibold text-gray-900">{product.name}</h3>
