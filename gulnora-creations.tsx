@@ -26,7 +26,7 @@ export default function Component() {
     {
       id: 2,
       name: "Geometric Diamond Tote",
-      price: "PKR 2,000",
+      price: "PKR 2,500",
       size: "Small",
       category: "Tote Bags",
       image: "/images/products/geometric-diamond-tote.jpeg",
@@ -50,7 +50,7 @@ export default function Component() {
     {
       id: 4,
       name: "Sunset Beach Scene Tote",
-      price: "PKR 2,000",
+      price: "PKR 2,500",
       size: "Small",
       category: "Tote Bags",
       image: "/images/products/sunset-beach-tote.jpeg",
@@ -62,7 +62,7 @@ export default function Component() {
     {
       id: 5,
       name: "Tropical Plumeria Tote",
-      price: "PKR 2,000",
+      price: "PKR 2,500",
       size: "Small",
       category: "Tote Bags",
       image: "/images/products/tropical-plumeria-tote.jpeg",
@@ -122,7 +122,7 @@ export default function Component() {
     {
       id: 10,
       name: "Orange Characters Tote",
-      price: "PKR 2,000",
+      price: "PKR 2,500",
       size: "Small",
       category: "Tote Bags",
       image: "/images/products/orange-characters-tote.jpeg",
@@ -272,7 +272,7 @@ I'm ready to place the order. Thank you!`
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
             <div className="text-center">
               <p className="text-gray-300 text-sm mb-1">Small Bags</p>
-              <p className="text-white text-2xl font-bold">PKR 2,000</p>
+              <p className="text-white text-2xl font-bold">PKR 2,500</p>
             </div>
             <div className="hidden sm:block w-px h-12 bg-gray-600"></div>
             <div className="text-center">
