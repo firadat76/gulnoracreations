@@ -50,7 +50,7 @@ export default function Component() {
     {
       id: 4,
       name: "Sunset Beach Scene Tote",
-      price: "PKR 2,500",
+      price: "PKR 500",
       size: "Small",
       category: "Tote Bags",
       image: "/images/products/sunset-beach-tote.jpeg",
@@ -548,20 +548,20 @@ I'm ready to place the order. Thank you!`
                 <p className="font-medium text-gray-900 mb-4">Follow Us</p>
                 <div className="flex space-x-4">
                   <Button
-                    variant="outline"
-                    size="icon"
-                    className="border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400 bg-transparent"
-                    onClick={() => window.open("https://www.instagram.com/gulnoraisma/", "_blank")}
+                    size="lg"
+                    className="bg-gradient-to-r from-purple-500 via-pink-500 to-orange-400 text-white hover:from-purple-600 hover:via-pink-600 hover:to-orange-500 px-6 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all"
+                    onClick={() => window.open("https://www.instagram.com/gulnoraisma2025/", "_blank")}
                   >
-                    <Instagram className="h-5 w-5" />
+                    <Instagram className="h-6 w-6 mr-2" />
+                    Instagram
                   </Button>
                   <Button
-                    variant="outline"
-                    size="icon"
-                    className="border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400 bg-transparent"
+                    size="lg"
+                    className="bg-blue-600 text-white hover:bg-blue-700 px-6 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all"
                     onClick={() => window.open("https://www.facebook.com/profile.php?id=61578798620764", "_blank")}
                   >
-                    <Facebook className="h-5 w-5" />
+                    <Facebook className="h-6 w-6 mr-2" />
+                    Facebook
                   </Button>
                 </div>
               </div>
